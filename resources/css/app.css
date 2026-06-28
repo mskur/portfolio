@@ -1,9 +1,75 @@
-@import 'tailwindcss';
+/* Ganti font utama seluruh website */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #4a4a4a; /* Warna teks agak di-soft, tidak hitam pekat */
+}
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
+/* Mengubah sudut menjadi lebih membulat (Rounded) */
+.rounded-4 {
+    border-radius: 1.25rem !important;
+}
+.rounded-pill {
+    border-radius: 50rem !important;
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+/* Memberikan efek bayangan (Shadow) yang sangat halus seperti embun */
+.shadow-sm {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+}
+.shadow {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+.shadow-lg {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Interaksi Hover pada Card Proyek (Naik sedikit saat disentuh mouse) */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Modifikasi tombol agar lebih premium */
+.btn {
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.2);
+}
+
+/* Efek kaca (Glassmorphism) ringan pada Navbar */
+.navbar {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.navbar-brand, .nav-link {
+    color: #333 !important;
+}
+.nav-link.active {
+    color: #0d6efd !important;
+    font-weight: 600;
+}
+
+/* Efek hover untuk link di Footer & Sidebar */
+.nav-link-hover:hover {
+    color: #0d6efd !important;
+    transform: translateX(4px);
+    transition: all 0.2s ease;
+}
+
+.hover-bg-light:hover {
+    background-color: #f8f9fa;
+    color: #333 !important;
+}
+
+/* Jarak tracking huruf untuk kesan elegan */
+.tracking-wider {
+    letter-spacing: 0.05em;
 }
