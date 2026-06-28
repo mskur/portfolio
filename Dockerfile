@@ -1,0 +1,24 @@
+FROM richarvey/nginx-php-fpm:3.1.6
+
+ENV WEBROOT=/var/www/html/public
+
+WORKDIR /var/www/html
+
+COPY . .
+
+RUN composer install --no-dev --optimize-autoloader
+
+RUN npm install
+RUN npm run build
+
+RUN php artisan config:clear
+RUN php artisan route:clear
+RUN php artisan view:clear
+RUN php artisan cache:clear
+
+RUN php artisan storage:link || true
+
+RUN chown -R nginx:nginx /var/www/html/storage
+RUN chmod -R 775 storage bootstrap/cache
+
+EXPOSE 8080
